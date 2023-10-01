@@ -9,6 +9,6 @@ class ExportCoverageTemplate extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['lga', 'cdd_teams', 'ccd_synched', 'child_spaq1', 'child_spaq2', 'redose_spaq1', 'redose_spaq2', 'referral1', 'referral2', 'adr1', 'adr2', 'total_spaq', 'total_wastage', 'day', 'cycle'];
+    protected $fillable = ['lga', 'cdd_teams', 'cdd_syched', 'child_who_received_spaq1', 'child_who_received_spaq2', 'redose_spaq1', 'redose_spaq2', 'referral1', 'referral2', 'total_adr', 'total_ineligible', 'total_spaq', 'total_wastage', 'day', 'cycle'];
 
 }

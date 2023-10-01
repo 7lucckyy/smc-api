@@ -2,12 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Scopes\FilterScope;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Coverage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['lga', 'cdd_teams', 'cdd_syched', 'child_who_received_spaq1', 'child_who_received_spaq2', 'redose_spaq1', 'redose_spaq2', 'referral1', 'referral2', 'adr1', 'adr2', 'total_spaq', 'total_wastage', 'day', 'cycle'];
+    protected $fillable = ['lga', 'cdd_teams', 'cdd_syched', 'child_who_received_spaq1', 'child_who_received_spaq2', 'redose_spaq1', 'redose_spaq2', 'referral1', 'referral2', 'total_adr', 'total_ineligible', 'total_spaq', 'total_wastage', 'day', 'cycle'];
+
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new FilterScope);
+    }
 }

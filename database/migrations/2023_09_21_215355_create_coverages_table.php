@@ -22,8 +22,8 @@ return new class extends Migration
             $table->bigInteger('redose_spaq2');
             $table->bigInteger('referral1');
             $table->bigInteger('referral2');
-            $table->bigInteger('adr1');
-            $table->bigInteger('adr2');
+            $table->bigInteger('total_adr');
+            $table->bigInteger('total_ineligile');
             $table->bigInteger('total_spaq');
             $table->bigInteger('total_wastage');
             $table->string('day');

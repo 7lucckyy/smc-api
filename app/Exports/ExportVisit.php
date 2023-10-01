@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\Models\ExportVisitTemplate;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class ExportVisit implements FromCollection
@@ -11,6 +12,10 @@ class ExportVisit implements FromCollection
     */
     public function collection()
     {
-        //
+        return ExportVisitTemplate::all();
+    }
+
+    public function headings() :array{
+      return  ['lga', 'ward', 'hf', 'username', 'phone', 'total_spaq_administered'];
     }
 }

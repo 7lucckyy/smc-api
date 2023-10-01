@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\ExportCoverage;
 use Illuminate\Http\Request;
+use App\Exports\ExportCoverage;
 use App\Imports\ImportCoverage;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\CoverageCreateRequest;
-use PhpParser\Node\Stmt\TryCatch;
+use App\Models\Coverage;
 
 class CoverageController extends Controller
 {
@@ -43,5 +43,14 @@ class CoverageController extends Controller
 
     }
     
+    public function index()
+
+    {    
+        $Data = Coverage::all();
+            return response()->json([
+                'Message' => 'Data Retrieved Successfully',
+                'Data' => $Data
+            ], 200);
+    }
    
 }

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Scopes\FilterScope;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Commodity extends Model
 {
@@ -12,4 +13,10 @@ class Commodity extends Model
     protected $fillable = [
         'lga', 'spaq1', 'spaq2', 'total_spaq', 'cycle', 'day', 
     ];
+
+
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new FilterScope);
+    }
 }

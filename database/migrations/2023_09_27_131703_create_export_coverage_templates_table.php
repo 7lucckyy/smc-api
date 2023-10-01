@@ -11,21 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('export_coverage_templates', function (Blueprint $table) {
+        Schema::create('coverages', function (Blueprint $table) {
             $table->id();
             $table->string('lga');
-            $table->bigInteger('ccd_teams');
-            $table->bigInteger('ccd_syched');
-            $table->bigInteger('child_spaq1');
-            $table->bigInteger('child_spaq2');
+            $table->bigInteger('cdd_teams');
+            $table->bigInteger('cdd_syched');
+            $table->bigInteger('child_who_received_spaq1');
+            $table->bigInteger('child_who_received_spaq2');
             $table->bigInteger('redose_spaq1');
             $table->bigInteger('redose_spaq2');
             $table->bigInteger('referral1');
             $table->bigInteger('referral2');
-            $table->bigInteger('adr1');
-            $table->bigInteger('adr2');
+            $table->bigInteger('total_adr');
+            $table->bigInteger('total_ineligile');
             $table->bigInteger('total_spaq');
             $table->bigInteger('total_wastage');
+            $table->string('day');
+            $table->string('cycle');
             $table->timestamps();
         });
     }

@@ -11,8 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('export_visit_templates', function (Blueprint $table) {
+        Schema::create('visits', function (Blueprint $table) {
             $table->id();
+            $table->string('lga');
+            $table->string('ward');
+            $table->string('hf');
+            $table->string('username');
+            $table->string('phone')->nullable();
+            $table->bigInteger('total_spaq_administered');
+            $table->string('latitute');
+            $table->string('longitute');
             $table->timestamps();
         });
     }

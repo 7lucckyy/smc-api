@@ -17,6 +17,6 @@ class ExportCohort implements FromCollection, WithHeadings
     }
 
     public function headings() :array{
-        return ['lga', 'total_reached'];
+      return  ['lga', 'boys_spaq1', 'boys_spaq2', 'girls_spaq1', 'girls_spaq2', 'total_reached'];
     }
 }

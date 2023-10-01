@@ -9,6 +9,6 @@ class ExportCohortTemplate extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['lga', 'spaq1_boys', 'spaq2_boys', 'spaq1_girls', 'spaq2_girls', 'total_reached', 'cycle', 'day'];
+    protected $fillable = ['lga', 'boys_spaq1', 'boys_spaq2', 'girls_spaq1', 'girls_spaq2', 'total_reached', 'cycle', 'day'];
 
 }

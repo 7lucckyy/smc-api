@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\ExportCommodity;
-use App\Http\Requests\CommodityCreateRequest;
-use App\Imports\ImportCommodity;
+use App\Models\Commodity;
 use Illuminate\Http\Request;
+use App\Exports\ExportCommodity;
+use App\Imports\ImportCommodity;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\CommodityCreateRequest;
 
 class CommodityController extends Controller
 {
@@ -14,8 +15,13 @@ class CommodityController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+
+    {    
+        $Data = Commodity::all();
+            return response()->json([
+                'Message' => 'Data Retrieved Successfully',
+                'Data' => $Data
+            ], 200);
     }
 
     /**

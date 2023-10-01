@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
+            $table->string('lga');
+            $table->string('ward');
+            $table->string('hf');
+            $table->string('username');
+            $table->string('phone')->nullable();
+            $table->bigInteger('total_spaq_administered');
+            $table->string('latitute');
+            $table->string('longitute');
+            $table->string('cycle');
+            $table->string('day');
             $table->timestamps();
         });
     }

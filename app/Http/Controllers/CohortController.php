@@ -6,7 +6,6 @@ use App\Models\Cohort;
 use Illuminate\Http\Request;
 use App\Exports\ExportCohort;
 use App\Http\Requests\CohortCreateRequest;
-use App\Http\Requests\FiltersCreateRequest;
 use App\Imports\ImportCohort;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Response;
@@ -17,17 +16,14 @@ class CohortController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(FiltersCreateRequest $request)
+    public function index()
 
-    {   
-        
+    {    
         $Data = Cohort::all();
-      
             return response()->json([
                 'Message' => 'Data Retrieved Successfully',
                 'Data' => $Data
             ], 200);
-       
     }
 
     /**
