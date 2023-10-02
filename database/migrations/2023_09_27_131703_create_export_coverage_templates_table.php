@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('coverages', function (Blueprint $table) {
+        Schema::create('export_coverage_templates', function (Blueprint $table) {
             $table->id();
             $table->string('lga');
             $table->bigInteger('cdd_teams');

@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\CohortController;
-use App\Http\Controllers\CommodityController;
-use App\Http\Controllers\CoverageController;
-use App\Http\Controllers\VisitController;
+use App\Http\Controllers\AuthController;
+use auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VisitController;
+use App\Http\Controllers\CohortController;
+use App\Http\Controllers\CoverageController;
+use App\Http\Controllers\CommodityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +20,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->get('/cohort/getDatas', function () {
+    return response()->json(['Hello'=> 'Greetings']);
 });
 
+
+Route::controller(AuthController::class)->group(function (){
+    Route::post('/user', 'register');
+});
 
 Route::controller(CommodityController::class)->group(function (){
     Route::get('/exportCommodity', 'Export');
@@ -39,6 +45,7 @@ Route::controller(CohortController::class)->group(function (){
     Route::get('/exportCohort', 'Export');
     Route::post('/cohort', 'store');
     Route::get('/cohort/getData', 'index');
+ 
 });
 
 Route::controller(VisitController::class)->group(function (){

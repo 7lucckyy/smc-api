@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cohorts', function (Blueprint $table) {
+        Schema::create('export_cohorts_templates', function (Blueprint $table) {
             $table->id();
             $table->string('lga');
             $table->bigInteger('boys_spaq1');
