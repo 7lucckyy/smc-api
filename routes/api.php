@@ -27,6 +27,13 @@ Route::middleware('auth:sanctum')->get('/cohort/getDatas', function () {
 
 Route::controller(AuthController::class)->group(function (){
     Route::post('/user', 'register');
+    Route::post('/auth', 'login');
+   
+    
+});
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
 
 Route::controller(CommodityController::class)->group(function (){
