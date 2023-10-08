@@ -3,9 +3,10 @@
 namespace App\Exports;
 
 use App\Models\ExportVisitTemplate;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class ExportVisit implements FromCollection
+class ExportVisit implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -16,6 +17,6 @@ class ExportVisit implements FromCollection
     }
 
     public function headings() :array{
-      return  ['lga', 'ward', 'hf', 'username', 'phone', 'total_spaq_administered'];
+      return  ['lga', 'ward', 'hf', 'recorder_username', 'phone', 'total_spaq_administered'];
     }
 }

@@ -21,7 +21,10 @@ class ExportCommodity implements FromCollection, WithHeadings
             'lga', 
             'spaq1', 
             'spaq2', 
-            'total_spaq'
+            'total_spaq',
+            'total_spaq1_used',
+            'total_spaq2_used',
+            'total_spaq_used',
         ];
     }
 }

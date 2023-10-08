@@ -6,14 +6,13 @@ use App\Exports\ExportVisit;
 use App\Http\Requests\VisitCreateRequest;
 use App\Imports\ImportVisit;
 use App\Models\Visit;
-use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 class VisitController extends Controller
 {
     public function Export()
     {
-        return Excel::download(new ExportVisit, 'cohortTemplate.xlsx');   
+        return Excel::download(new ExportVisit, 'visitTemplate.xlsx');   
 
     }
 
@@ -35,7 +34,7 @@ class VisitController extends Controller
             Excel::import(new ImportVisit, $request->file('file')->store('files'));
             return response()->json([
                 'Sucess' => true,
-                'Message' => 'Cohort Imported Successfully',
+                'Message' => 'Visit Imported Successfully',
                 'Status' => 200
             ]);
         } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
