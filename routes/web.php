@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommodityController;
+use App\Http\Controllers\VisitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,8 @@ Route::get('/file-import',[UserController::class, 'importView'])->name('import-v
 // Route::post('/import',[UserController::class, 'import']);
 Route::get('/export-users',[UserController::class, 'exportUsers'])->name('export-users');
 
-Route::controller(CommodityController::class)->group(function (){
-    Route::get('/exportCommodity', 'Export');
+Route::controller(VisitController::class)->group(function (){
+    Route::get('/exportVisit', 'Export');
     Route::post('/import', 'store')->name('import');
 });
 

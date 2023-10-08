@@ -33,6 +33,7 @@ class ImportCoverage implements ToModel, WithValidation, WithHeadingRow
             'referral2' => $row['referral2'],
             'total_adr' => $row['total_adr'],
             'total_ineligible' => $row['total_ineligible'],
+            'target' => $row['target'],
             'total_spaq' => $row['total_spaq'],
             'total_wastage' => $row['total_wastage'],
             'cycle' => $request['cycle'],
@@ -54,6 +55,7 @@ class ImportCoverage implements ToModel, WithValidation, WithHeadingRow
             'total_adr' => 'required',
             'total_ineligible' => 'required',
             'total_spaq' => 'required',
+            'target' => 'required',
             'total_wastage' => 'required',
             
         ];

@@ -11,7 +11,7 @@ class Commodity extends Model
     use HasFactory;
 
     protected $fillable = [
-        'lga', 'spaq1', 'spaq2', 'total_spaq', 'cycle', 'day', 
+        'lga', 'spaq1', 'spaq2', 'total_spaq', 'total_spaq1_used', 'total_spaq2_used', 'total_spaq_used', 'cycle', 'day', 
     ];
 
 

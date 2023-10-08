@@ -17,6 +17,9 @@ return new class extends Migration
             $table->bigInteger('spaq1');
             $table->bigInteger('spaq2');
             $table->bigInteger('total_spaq');
+            $table->bigInteger('total_spaq1_used');
+            $table->bigInteger('total_spaq2_used');
+            $table->bigInteger('total_spaq_used');
             $table->string('day');
             $table->string('cycle');
             $table->timestamps();

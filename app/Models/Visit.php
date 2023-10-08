@@ -10,7 +10,7 @@ class Visit extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['lga', 'ward', 'hf', 'username', 'phone', 'total_spaq_administered', 'cycle', 'day'];
+    protected $fillable = ['lga', 'ward', 'hf', 'recorder_username', 'phone', 'total_spaq_administered', 'latitude', 'longitude', 'cycle', 'day'];
 
     protected static function booted(): void
     {
