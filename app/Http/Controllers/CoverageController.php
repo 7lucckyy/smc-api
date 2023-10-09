@@ -46,12 +46,17 @@ class CoverageController extends Controller
     public function index()
 
     {    
-        $Data = Coverage::all();
-
+        try {
+            $data = Coverage::all();
             return response()->json([
                 'Message' => 'Data Retrieved Successfully',
-                'Data' => $Data
+                'Data' => $data
             ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'Message' => 'Error retrieving data: ' . $e->getMessage(),
+            ], 500);
+        }
     }
    
 }
