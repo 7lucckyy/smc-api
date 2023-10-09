@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Exports\ExportCoverage;
 use App\Imports\ImportCoverage;
 use Maatwebsite\Excel\Facades\Excel;
@@ -36,7 +37,7 @@ class CoverageController extends Controller
        
     }
 
-    public function Export(){
+    public function Export(Request $request){
 
          return Excel::download(new ExportCoverage, 'coverageTemplate.xlsx');  
 
@@ -46,7 +47,7 @@ class CoverageController extends Controller
 
     {    
         $Data = Coverage::all();
-        
+
             return response()->json([
                 'Message' => 'Data Retrieved Successfully',
                 'Data' => $Data
