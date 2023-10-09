@@ -46,6 +46,7 @@ class CoverageController extends Controller
 
     {    
         $Data = Coverage::all();
+        
             return response()->json([
                 'Message' => 'Data Retrieved Successfully',
                 'Data' => $Data
