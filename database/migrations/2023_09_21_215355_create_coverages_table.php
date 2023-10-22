@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('coverages', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('lga');
             $table->bigInteger('cdd_teams');
             $table->bigInteger('cdd_syched');
@@ -29,6 +29,7 @@ return new class extends Migration
             $table->bigInteger('total_wastage');
             $table->string('day');
             $table->string('cycle');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

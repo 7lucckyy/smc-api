@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('export_commodity_templates', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('lga');
             $table->bigInteger('spaq1');
             $table->bigInteger('spaq2');
@@ -21,6 +21,7 @@ return new class extends Migration
             $table->bigInteger('total_spaq2_used');
             $table->bigInteger('total_spaq_used');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

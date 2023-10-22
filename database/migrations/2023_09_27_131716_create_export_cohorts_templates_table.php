@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('export_cohorts_templates', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('lga');
             $table->bigInteger('boys_spaq1');
             $table->bigInteger('boys_spaq2');
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('cycle');
             $table->string('day');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

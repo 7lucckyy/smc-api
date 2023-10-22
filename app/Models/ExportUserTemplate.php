@@ -2,16 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class ExportUserTemplate extends Model
+class ExportUserTemplate extends AbstractModel
 {
-    use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\VisitController;
 use App\Http\Controllers\CohortController;
 use App\Http\Controllers\CoverageController;
 use App\Http\Controllers\CommodityController;
+use App\Http\Controllers\OverviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,5 +50,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('/coverage', 'store');
         Route::get('/coverage/getData', 'index');
     });
+    Route::controller(OverviewController::class)->group(function (){
+        Route::get('/overview/getData', 'index');
+    });
     Route::post('/logout', [AuthController::class, 'logout']);
 });
+

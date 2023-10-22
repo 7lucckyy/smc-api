@@ -17,6 +17,6 @@ class ExportVisit implements FromCollection, WithHeadings
     }
 
     public function headings() :array{
-      return  ['lga', 'ward', 'hf', 'recorder_username', 'phone', 'total_spaq_administered'];
+      return  ['lga', 'ward', 'hf', 'recorder_username', 'phone', 'total_spaq_administered', 'latitude', 'longitude'];
     }
 }

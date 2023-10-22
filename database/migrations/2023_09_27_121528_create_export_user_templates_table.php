@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('export_user_templates', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('name');
             $table->string('email');
             $table->string('password');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

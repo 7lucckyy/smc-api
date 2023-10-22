@@ -2,14 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class ExportCommodityTemplate extends Model
+class ExportCommodityTemplate extends AbstractModel
 {
-    use HasFactory;
 
-    protected $fillable = [
-        'lga', 'spaq1', 'spaq2', 'total_spaq'
-    ];
 }
