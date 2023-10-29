@@ -2,53 +2,73 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cohort;
-use App\Exports\ExportCohort;
-use App\Http\Requests\CohortCreateRequest;
-use App\Imports\ImportCohort;
-use Maatwebsite\Excel\Facades\Excel;
-use Illuminate\Support\Facades\Response;
 
+use App\Actions\CohortActions;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\V1\Cohorts\CreateCohortRequest;
+use App\Http\Requests\Base\DeleteRequest;
+use App\Http\Requests\Base\FetchRequest;
 
 class CohortController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function __construct(
+        private CohortActions $cohortActions,
+       
+    ) {
+    }
+    public function index(FetchRequest $request)
 
-    {    
-        $Data = Cohort::all();
-            return response()->json([
-                'Message' => 'Data Retrieved Successfully',
-                'Data' => $Data
-            ], 200);
+    {      
+        $validatedRequest = $request->validated();
+        
+        $data = $this->cohortActions->getAllRecord([
+            'fetch_payload' => [
+                'cycle' => $validatedRequest['cycle'],
+                'day' => $validatedRequest['day'],
+            ],
+        ]);
+       
+        return successResponse('cohort data fetch successfully', 200, $data);
     }
 
-    public function store(CohortCreateRequest $request)
+    public function store(CreateCohortRequest $request)
 
     {
-        try {
-    
-            Excel::import(new ImportCohort, $request->file('file')->store('files'));
-            return response()->json([
-                'Sucess' => true,
-                'Message' => 'Cohort Imported Successfully',
-                'Status' => 200
+        $validatedRequest = $request->validated();
+        DB::transaction(function () use ($validatedRequest) {
+            $data = $this->cohortActions->store([
+                'create_payload' => [
+                    'cycle' => $validatedRequest['cycle'],
+                    'day' => $validatedRequest['day'],
+                    'file' => $validatedRequest['file'],
+                ],
             ]);
-        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
-             $failures = $e->failures();
-             return response()->json([
-                'Success' => false,
-                'Message' => $failures,
-             ], 500);
-        }
+        });
+            return successResponse(
+                'Cohort data was imported successfully',
+                201,
+            );
     }
 
-    public function Export()
-    {
-        return Excel::download(new ExportCohort, 'cohortTemplate.xlsx');   
+    public function delete(DeleteRequest $request){
+        $validatedRequest = $request->validated();
 
+        $this->cohortActions->deleteCohortRecord([
+            'delete_payload' => [
+                'cycle' => $validatedRequest['cycle'],
+                'day' => $validatedRequest['day'],
+            ],
+        ]);
+
+        return successResponse(
+            'Cohort data deleted successfully',
+            200,
+        );
     }
+
+
 }
 

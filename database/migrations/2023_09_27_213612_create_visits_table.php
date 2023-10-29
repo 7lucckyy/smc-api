@@ -21,8 +21,8 @@ return new class extends Migration
             $table->bigInteger('total_spaq_administered');
             $table->string('latitude');
             $table->string('longitude');
-            $table->string('cycle');
-            $table->string('day');
+            $table->integer('cycle');
+            $table->integer('day');
             $table->timestamps();
             $table->softDeletes();
         });

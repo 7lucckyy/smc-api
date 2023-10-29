@@ -20,8 +20,8 @@ return new class extends Migration
             $table->bigInteger('total_spaq1_used');
             $table->bigInteger('total_spaq2_used');
             $table->bigInteger('total_spaq_used');
-            $table->string('day');
-            $table->string('cycle');
+            $table->integer('day');
+            $table->integer('cycle');
             $table->timestamps();
             $table->softDeletes();
         });

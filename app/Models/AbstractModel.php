@@ -14,8 +14,8 @@ class AbstractModel extends Model
     
     protected $guarded = [];
 
-    protected static function booted(): void
-    {
-        static::addGlobalScope(new FilterScope);
-    }
+    // protected static function booted(): void
+    // {
+    //     static::addGlobalScope(new FilterScope);
+    // }
 }

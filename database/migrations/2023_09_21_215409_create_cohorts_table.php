@@ -19,8 +19,8 @@ return new class extends Migration
             $table->bigInteger('girls_spaq1');
             $table->bigInteger('girls_spaq2');
             $table->bigInteger('total_reached');
-            $table->string('cycle');
-            $table->string('day');
+            $table->integer('cycle');
+            $table->integer('day');
             $table->softDeletes();
             $table->timestamps();
         });

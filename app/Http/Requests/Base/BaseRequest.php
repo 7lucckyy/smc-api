@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Base;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CohortCreateRequest extends FormRequest
+abstract class BaseRequest extends FormRequest
 {
-    /**
+     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
         return true;
     }
-
-    /**
+    
+      /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
@@ -22,9 +22,9 @@ class CohortCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cycle' => 'required',
-            'day' => 'required',
-            'file' => 'required|mimes:xlsx',
+            'cycle' => ['required|integer'],
+            'day' => ['required|integer'],
+            'file' => ['required|mimes:xlsx'],
            
         ];
     }
@@ -32,8 +32,9 @@ class CohortCreateRequest extends FormRequest
     public function messages(){
         return [
             'cycle.required' => 'Select the activity cycle',
-            'day.required' => 'Kindly ensure you select the implemetation day',
-            'file.requred' => 'Kindly upload Excel file',
+            'day.required' => 'Kindly ensure you select the implementation day',
+            'file.required' => 'Kindly upload Excel file',
         ];
     }
+    
 }

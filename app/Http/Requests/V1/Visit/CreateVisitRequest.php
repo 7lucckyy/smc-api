@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CommodityCreateRequest extends FormRequest
+class CreateVisitRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,18 +22,7 @@ class CommodityCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cycle' => 'required',
-            'day' => 'required',
-            'file' => 'required|mimes:xlsx',
-           
-        ];
-    }
-
-    public function messages(){
-        return [
-            'cycle.required' => 'Select the activity cycle',
-            'day.required' => 'Kindly ensure you select the implemetation day',
-            'file.requred' => 'Kindly upload Excel file',
+            //
         ];
     }
 }

@@ -1,19 +1,13 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\V1\Users;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Base\BaseRequest;
 
-class AuthCreateRequest extends FormRequest
+
+class CreateUserRequest extends BaseRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return true;
-    }
-
+  
     /**
      * Get the validation rules that apply to the request.
      *

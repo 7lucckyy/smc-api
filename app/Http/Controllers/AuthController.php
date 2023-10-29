@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AuthCreateRequest;
-use App\Http\Requests\LoginCreateRequest;
+use App\Http\Requests\AuthRequest;
 use App\Models\User;
-use Illuminate\Http\Response;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Hash;
+
+use App\Http\Requests\V1\Users\CreateUserRequest;
 
 
 class AuthController extends Controller
 {
-    public function register(AuthCreateRequest $request){
+    public function register(CreateUserRequest $request){
         $Data = $request->all();
 
         $user = User::create([
@@ -43,7 +42,7 @@ class AuthController extends Controller
     }
 
 
-    public function login(LoginCreateRequest $request)
+    public function login(AuthRequest $request)
     {
         $data = $request->all();
 

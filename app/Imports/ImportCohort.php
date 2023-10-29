@@ -45,10 +45,10 @@ class ImportCohort implements ToModel, WithValidation, WithHeadingRow
     public function customValidationMessages(){
         return [
             'lga.required' => 'LGA Name is required',
-            'boys_spaq1.required' => 'No. of Boys who recieved spaq 1 is required',
-            'boys_spaq2.required' => 'No. of Boys who recieved spaq 2 is required',
-            'girls_spaq1.required' => 'No. of Girls who recieved spaq 1 is required',
-            'girls_spaq2.required' => 'No. of Girls who recieved spaq 2 is required',
+            'boys_spaq1.required' => 'No. of Boys who received spaq 1 is required',
+            'boys_spaq2.required' => 'No. of Boys who received spaq 2 is required',
+            'girls_spaq1.required' => 'No. of Girls who received spaq 1 is required',
+            'girls_spaq2.required' => 'No. of Girls who received spaq 2 is required',
             'total_reached.required' => 'Total children reached is required',
         ];
     }
